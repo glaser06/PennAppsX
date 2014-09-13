@@ -46,6 +46,40 @@ try:
 except ImportError:
     pass
     
+class WavFile(AudioSource):
+    def __init__(self, filename_or_fileobject):
+        if isinstance(filename_or_fileobject, str):
+            self.filename = filename_or_fileobject
+        else:
+            self.filename = None
+            self.wav_file = filename_or_fileobject
+        self.stream = None
+
+    def __enter__(self):
+        if self.filename: self.wav_file = open(self.filename, "rb")
+        self.wav_reader = wave.open(self.wav_file, "rb")
+        self.SAMPLE_WIDTH = self.wav_reader.getsampwidth()
+        self.RATE = self.wav_reader.getframerate()
+        self.CHANNELS = self.wav_reader.getnchannels()
+        assert self.CHANNELS == 1
+        self.CHUNK = 4096
+        self.stream = WavFile.WavStream(self.wav_reader)
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        if self.filename: self.wav_file.close()
+        self.stream = None
+
+    class WavStream(object):
+        def __init__(self, wav_reader):
+            self.wav_reader = wav_reader
+
+        def read(self, size = -1):
+            if size == -1:
+                return self.wav_reader.readframes(self.wav_reader.getnframes())
+            return self.wav_reader.readframes(size)
+
+    
 class AudioData(object):
     def __init__(self, rate, data):
         self.rate = rate
