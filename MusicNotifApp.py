@@ -16,9 +16,7 @@ def checkName(audio, lock, v):
     try:
         list = r.recognize(audio, True)
         for prediction in list:
-            #print(prediction["text"])
             if(match.checkArray(prediction["text"], config.name, 0.5)):
-                #global annoyanceCounter
                 with lock:
                     v.value += 1
                 if(v.value == 1):
