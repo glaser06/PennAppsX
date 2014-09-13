@@ -84,7 +84,7 @@ class Recognizer(AudioSource):
 
         frames = collections.deque()
         assert self.pause_threshold >= self.quiet_duration >= 0
-        seconds_per_buffer = (source.CHUNK) / source.RATE
+        seconds_per_buffer = (source.CHUNK + 0.0) / source.RATE
         pause_buffer_count = int(math.ceil(self.pause_threshold / seconds_per_buffer))
         quiet_buffer_count = int(math.ceil(self.quiet_duration / seconds_per_buffer))
         elapsed_time = 0
@@ -127,11 +127,10 @@ class Recognizer(AudioSource):
 
         url = "http://www.google.com/speech-api/v2/recognize?client=chromium&lang=%s&key=%s" % (self.language, self.key)
         self.request = Request(url, data = audio_data.data, headers = {"Content-Type": "audio/x-flac; rate=%s" % audio_data.rate})
-
         try:
             response = urlopen(self.request)
         except:
-            raise KeyError("Server wouldn't respond")
+            raise KeyError("Server wouldn't respond (invalid key or quota has been maxed out)")
         response_text = response.read().decode("utf-8")
 
         actual_result = []
@@ -142,13 +141,13 @@ class Recognizer(AudioSource):
                 actual_result = result[0]
 
         if "alternative" not in actual_result:
-            raise LookupError("Speech is nonsense")
+            raise LookupError("Speech is unintelligible")
 
         if not show_all:
             for prediction in actual_result["alternative"]:
                 if "confidence" in prediction:
                     return prediction["transcript"]
-            raise LookupError("Speech is nonsense")
+            raise LookupError("Speech is unintelligible")
 
         spoken_text = []
 
@@ -160,6 +159,7 @@ class Recognizer(AudioSource):
                 spoken_text.append({"text":prediction["transcript"],"confidence":prediction["confidence"]})
             else:
                 spoken_text.append({"text":prediction["transcript"],"confidence":default_confidence})
+        return spoken_text
                 
 def shExists(pgm):
     path = os.getenv('PATH')
