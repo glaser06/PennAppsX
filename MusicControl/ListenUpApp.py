@@ -1,5 +1,6 @@
 import rumps
 import ListenToEverything
+import MusicNotifApp
 import config
 import threading
 
@@ -10,8 +11,16 @@ class ListenUpApp(rumps.App):
         self.sm = ListenToEverything.SoundMonitor(100, 1500)
 
     @rumps.clicked("Alert on Name")
-    def alert_on_name(self, _):
-        pass
+    def alert_on_name(self, sender):
+        sender.state = not sender.state
+        if (sender.state):
+            f = open('.name')
+            name = f.read().split(',')[0]
+            f.close()
+            t = threading.Thread(target=MusicNotifApp.run, args=(name,))
+            t.start()
+        else:
+            MusicNotifApp.kill()
 
     @rumps.clicked("Duck Audio on Speaking")
     def duck_on_speaking(self, sender):

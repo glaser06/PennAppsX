@@ -51,7 +51,7 @@ class SoundMonitor(object):
         self.AMP_FUZZ_FACTOR = amp_fuzz_factor
 
         self.pa = pyaudio.PyAudio()
-        self.stream = self.open_mic_stream()
+        self.stream = ''
     
     def stop(self):
         self.stream.close()
@@ -118,6 +118,7 @@ class SoundMonitor(object):
             self.normal_volume = get_volume()
     
     def loop(self):
+        self.stream = self.open_mic_stream()
         self.running = True
         while self.running:
             self.listen()

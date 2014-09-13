@@ -16,7 +16,8 @@ def genNames():
     list = r.recognize(audio, True)
     for prediction in list:
         print prediction["text"]
-        strng = strng + "," + prediction["text"]
+    textlist = [a["text"] for a in list]
+    strng = ",".join(textlist)
     return strng.replace(" ", "")
 
 def run():

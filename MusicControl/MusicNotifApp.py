@@ -6,8 +6,8 @@ import subprocess
 import numpy
 from scipy.fftpack import dct
 from scipy.io import wavfile
-from features import mfcc
-from features import logfbank
+#from features import mfcc
+#from features import logfbank
 import scipy.io.wavfile as wav
 from threading import Thread
 from multiprocessing import Process, Value, Lock
@@ -30,12 +30,12 @@ def get_volume():
     ovol = int(subprocess.check_output(['osascript', '-e', 'set ovol to output volume of (get volume settings)']))
     return ovol
 
-def checkName(audio, lock, v):
+def checkName(audio, lock, v, name):
     #print("Called checkName")
     try:
         list = r.recognize(audio, True)
         for prediction in list:
-            if(match.checkArray(prediction["text"], sys.argv[1], 0.3)):
+            if(match.checkArray(prediction["text"], name, 0.3)):
                 with lock:
                     v.value += 1
                 if(v.value >= 1):
@@ -50,15 +50,24 @@ def checkName(audio, lock, v):
         print("")
         #print("Nothing said!")
 
+def run(name):
+    global isrunning
+    isrunning = True
+    v = Value('i', 0)
+    lock = Lock()
+    while isrunning:
+        with m as source:
+            audio = r.record(source)
+        t = Thread(target = checkName, args=(audio, lock, v, name))
+        t.setDaemon(True)
+        t.start()
+
+def kill():
+    global isrunning
+    isrunning = False
+
 if __name__ == "__main__":
     if(len(sys.argv) < 2):
         print_usage()
         sys.exit(1)
-    v = Value('i', 0)
-    lock = Lock()
-    while True:
-        with m as source:
-            audio = r.record(source)
-        t = Thread(target = checkName, args=(audio, lock, v))
-        t.setDaemon(True)
-        t.start()
+    run(sys.argv[1])
