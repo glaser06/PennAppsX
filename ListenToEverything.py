@@ -27,7 +27,7 @@ def print_usage():
     print "usage %s <rms_sample_rate> <amp_fuzz_factor>" % sys.argv[0]
     print "    Where rms_sample_rate is the number of blocks to look at to determine ambient noise level"
     print "    and   amp_fuzz_factor is the noise level over ambient to drop system volume at"
-    print "    Units are fucked up. 100 and 600 respectively are good starting points"
+    print "    Units are fucked up. 100 and 100 respectively are good starting points"
 
 def set_volume(volume):
     subprocess.call(['osascript', '-e', 'set volume output volume '+str(volume)])
