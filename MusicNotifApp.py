@@ -20,7 +20,7 @@ def checkName():
     try:
         list = r.recognize(audio,True)
         for prediction in list:
-            #print(prediction["text"])
+            print(prediction["text"])
             if(match.checkArray(prediction["text"],config.name,0.5)):
                 global annoyanceCounter
                 annoyanceCounter = annoyanceCounter + 1
@@ -32,13 +32,14 @@ def checkName():
                     from_="+17606704339")
                 elif(annoyanceCounter == 3):
                     os.system("osascript -e 'set Volume 0'")
+                break
             print(prediction["text"])
     except LookupError:
         print("Nothing said!")
 
 class MusicNotifApp(rumps.App):
     def __init__(self):
-        super(MusicNotifApp, self).__init__("MusicListener")
+        super(MusicNotifApp, self).__init__("ListenUp!")
         self.menu = ["Preferences"]
         t1 = Thread(target = loop)
         t1.setDaemon(True)
