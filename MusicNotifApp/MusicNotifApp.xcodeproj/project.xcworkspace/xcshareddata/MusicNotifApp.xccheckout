@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>3DD27F74-0649-433A-9096-69149E27BDF0</string>
+	<string>1208CB26-54B8-47CA-B0EE-CE9AA3CBA767</string>
 	<key>IDESourceControlProjectName</key>
 	<string>MusicNotifApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,7 +14,7 @@
 		<string>https://github.com/yousufmsoliman/PennAppsX.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MusicNotifApp/MusicNotifApp.xcodeproj/project.xcworkspace</string>
+	<string>MusicNotifApp/MusicNotifApp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>33E31CEA4E5F50BAFBB493106B71D0E9866E47CC</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>33E31CEA4E5F50BAFBB493106B71D0E9866E47CC</string>
 			<key>IDESourceControlWCCName</key>
-			<string>PennAppsX</string>
+			<string>PennAppsX1</string>
 		</dict>
 	</array>
 </dict>

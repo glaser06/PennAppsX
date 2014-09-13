@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6DD524F919C3F71800807625"
+               BlueprintIdentifier = "6D68B11A19C496A800A245E3"
                BuildableName = "MusicNotifApp.app"
                BlueprintName = "MusicNotifApp"
                ReferencedContainer = "container:MusicNotifApp.xcodeproj">
@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6DD5250B19C3F71800807625"
+               BlueprintIdentifier = "6D68B12C19C496A800A245E3"
                BuildableName = "MusicNotifAppTests.xctest"
                BlueprintName = "MusicNotifAppTests"
                ReferencedContainer = "container:MusicNotifApp.xcodeproj">
@@ -46,7 +46,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6DD5250B19C3F71800807625"
+               BlueprintIdentifier = "6D68B12C19C496A800A245E3"
                BuildableName = "MusicNotifAppTests.xctest"
                BlueprintName = "MusicNotifAppTests"
                ReferencedContainer = "container:MusicNotifApp.xcodeproj">
@@ -56,7 +56,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6DD524F919C3F71800807625"
+            BlueprintIdentifier = "6D68B11A19C496A800A245E3"
             BuildableName = "MusicNotifApp.app"
             BlueprintName = "MusicNotifApp"
             ReferencedContainer = "container:MusicNotifApp.xcodeproj">
@@ -75,7 +75,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6DD524F919C3F71800807625"
+            BlueprintIdentifier = "6D68B11A19C496A800A245E3"
             BuildableName = "MusicNotifApp.app"
             BlueprintName = "MusicNotifApp"
             ReferencedContainer = "container:MusicNotifApp.xcodeproj">
@@ -93,7 +93,7 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6DD524F919C3F71800807625"
+            BlueprintIdentifier = "6D68B11A19C496A800A245E3"
             BuildableName = "MusicNotifApp.app"
             BlueprintName = "MusicNotifApp"
             ReferencedContainer = "container:MusicNotifApp.xcodeproj">
