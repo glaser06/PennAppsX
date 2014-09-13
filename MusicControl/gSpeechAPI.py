@@ -109,7 +109,7 @@ class Recognizer(AudioSource):
         system = platform.system()
         path = os.path.dirname(os.path.abspath(__file__))
         flacConverter = shExists("flac")
-        cmd = subprocess.Popen("\"%s\" --stdout --totally-silent --best -" % flacConverter, stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
+        cmd = subprocess.Popen("/usr/local/bin/flac --stdout --totally-silent --best -", stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
         flacData, stderr = cmd.communicate(wav_data)
         return flacData
 

@@ -7,7 +7,7 @@ from threading import Thread
 from multiprocessing import Process, Value, Lock
 
 def genNames():
-    global name
+    #global name
     r = g.Recognizer()
     m = g.Microphone()
     strng = ""
@@ -15,10 +15,14 @@ def genNames():
         audio = r.record(source)
     list = r.recognize(audio, True)
     for prediction in list:
+        print prediction["text"]
         strng = strng + "," + prediction["text"]
     return strng.replace(" ", "")
-    
-if __name__ == "__main__":
+
+def run():
     f = open('.name', 'w')
     names = genNames()
     f.write(names)
+
+if __name__ == "__main__":
+    run()

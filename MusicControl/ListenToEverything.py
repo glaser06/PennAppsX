@@ -39,15 +39,16 @@ def get_rms(block):
     return audioop.rms(block, 2)
 
 class SoundMonitor(object):
-    def __init__(self):
+    def __init__(self, rms_sample_rate, amp_fuzz_factor):
+        self.running = True
         self.amp_threshold = 0
         self.normal_volume = get_volume()
         self.reset=False
         self.errorcount = 0
         self.fuzz_time = 0
         self.rms_blocks = ""
-        self.RMS_SAMPLE_RATE = int(sys.argv[1])           
-        self.AMP_FUZZ_FACTOR = int(sys.argv[2])
+        self.RMS_SAMPLE_RATE = rms_sample_rate    
+        self.AMP_FUZZ_FACTOR = amp_fuzz_factor
 
         self.pa = pyaudio.PyAudio()
         self.stream = self.open_mic_stream()
@@ -115,11 +116,18 @@ class SoundMonitor(object):
 
             print( '#'*int(self.amp_threshold/100),'@'*((amplitude-self.amp_threshold)/100), self.amp_threshold, amplitude )
             self.normal_volume = get_volume()
+    
+    def loop(self):
+        self.running = True
+        while self.running:
+            self.listen()
+    
+    def kill(self):
+        self.running = False
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
         print_usage()
         sys.exit(1)
-    sm = SoundMonitor()
-    while True:
-        sm.listen()
+    sm = SoundMonitor(int(sys.argv[1]), int(sys.argv[2]))
+    sm.loop()
