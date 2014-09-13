@@ -91,6 +91,8 @@ class Recognizer(AudioSource):
 
         while True:
             elapsed_time += seconds_per_buffer
+            if elapsed_time > 2:
+                break
             if timeout and elapsed_time > timeout: 
                 raise TimeoutError("listening timed out")
 
@@ -126,11 +128,9 @@ class Recognizer(AudioSource):
         assert isinstance(audio_data, AudioData)
 
         url = "http://www.google.com/speech-api/v2/recognize?client=chromium&lang=%s&key=%s" % (self.language, self.key)
-        print("Attempting Connection!")
         self.request = Request(url, data = audio_data.data, headers = {"Content-Type": "audio/x-flac; rate=%s" % audio_data.rate})
         try:
             response = urlopen(self.request)
-            print("Received Response!")
         except:
             raise KeyError("Server wouldn't respond (invalid key or quota has been maxed out)")
         response_text = response.read().decode("utf-8")
