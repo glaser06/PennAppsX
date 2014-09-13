@@ -3,6 +3,12 @@ from twilio.rest import TwilioRestClient
 import gSpeechAPI as g
 import sys
 import subprocess
+import numpy
+from scipy.fftpack import dct
+from scipy.io import wavfile
+from features import mfcc
+from features import logfbank
+import scipy.io.wavfile as wav
 from threading import Thread
 from multiprocessing import Process, Value, Lock
 
@@ -39,7 +45,7 @@ def checkName(audio, lock, v):
                 if(v.value >= 1):
                     set_volume(get_volume()/7)
                 break
-            #print(prediction["text"])
+            print(prediction["text"])
     except LookupError:
         print("")
         #print("Nothing said!")
