@@ -25,21 +25,19 @@ def checkName(audio, lock, v):
     try:
         list = r.recognize(audio, True)
         for prediction in list:
-            if(match.checkArray(prediction["text"], config.name, 0.5)):
+            if(match.checkArray(prediction["text"], config.name, 0.3)):
                 with lock:
                     v.value += 1
                 if(v.value >= 1):
                     rumps.notification("Pay attention!", "Someone said your name!", "Dumbass!")
-                if(v.value >= 2):
-                    message = client.messages.create(body="Pay some fucking attention to the people around you!",
-                    to="+18583822455",
-                    from_="+17606704339")
+                #if(v.value >= 2):
+                #   message = client.messages.create(body="Pay some fucking attention to the people around you!", to="+18583822455", from_="+17606704339")
                 if(v.value >= 1):
                     set_volume(get_volume()/7)
                 break
             #print(prediction["text"])
     except LookupError:
-        print("Nothing said!")
+        #print("Nothing said!")
 
 if __name__ == "__main__":
     v = Value('i', 0)
