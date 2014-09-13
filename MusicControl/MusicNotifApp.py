@@ -43,7 +43,7 @@ def checkName(audio, lock, v, name):
                 #if(v.value >= 2):
                 #   message = client.messages.create(body="Pay some fucking attention to the people around you!", to="+18583822455", from_="+17606704339")
                 if(v.value >= 1):
-                    set_volume(get_volume()/7)
+                    set_volume(get_volume()/4)
                 break
             print(prediction["text"])
     except LookupError:
