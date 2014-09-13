@@ -19,9 +19,9 @@ try:
             self.device_index = device_index
             self.format = pyaudio.paInt16
             self.SAMPLE_WIDTH = pyaudio.get_sample_size(self.format)
-            self.RATE = 16000
+            self.RATE = 44100
             self.CHANNELS = 1
-            self.CHUNK = 1024
+            self.CHUNK = 2205
 
             self.audio = None
             self.stream = None
