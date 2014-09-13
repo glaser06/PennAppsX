@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3DD27F74-0649-433A-9096-69149E27BDF0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MusicNotifApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>33E31CEA4E5F50BAFBB493106B71D0E9866E47CC</key>
+		<string>https://github.com/yousufmsoliman/PennAppsX.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MusicNotifApp/MusicNotifApp.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>33E31CEA4E5F50BAFBB493106B71D0E9866E47CC</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yousufmsoliman/PennAppsX.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>33E31CEA4E5F50BAFBB493106B71D0E9866E47CC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>33E31CEA4E5F50BAFBB493106B71D0E9866E47CC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>PennAppsX</string>
+		</dict>
+	</array>
+</dict>
+</plist>
