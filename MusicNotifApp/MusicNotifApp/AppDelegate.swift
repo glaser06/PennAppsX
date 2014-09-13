@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Foundation
 
 class AppDelegate: NSObject, NSApplicationDelegate,NSSpeechRecognizerDelegate {
     
@@ -16,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSSpeechRecognizerDelegate {
     
     var buttonPresses = 0;
     
+    @IBOutlet weak var nameText: NSTextField!
     var statusBar = NSStatusBar.systemStatusBar()
     var statusBarItem : NSStatusItem = NSStatusItem()
     var menu: NSMenu = NSMenu()
@@ -23,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSSpeechRecognizerDelegate {
     var listen: NSSpeechRecognizer!
     var name: String!
     override func awakeFromNib() {
-        theLabel.stringValue = "You've pressed the button \n \(buttonPresses) times!"
+        //theLabel.stringValue = "You've pressed the button \n \(buttonPresses) times!"
         
         //Add statusBarItem
         statusBarItem = statusBar.statusItemWithLength(-1)
@@ -35,34 +37,80 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSSpeechRecognizerDelegate {
         menuItem.action = Selector("setWindowVisible:")
         menuItem.keyEquivalent = ""
         menu.addItem(menuItem)
+        
+        
     }
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
-        listen = NSSpeechRecognizer()
-        var cmds = ["sunny","something","yousef","gerry","kumail"]
         
+        name = "";
+        if(name != "")
+        {
+            //startListening()
+            self.window!.orderOut(self)
+        }
+        else
+        {
+            self.window!.orderFront(self)
+        }
+        
+        //self.window!.orderOut(self)
+    }
+    func startListening()
+    {
+        listen = NSSpeechRecognizer()
+        var cmds = [name]
         listen.commands = cmds
-        listen.listensInForegroundOnly = false
-        listen.blocksOtherRecognizers = true
+        listen.listensInForegroundOnly = true
+        //listen.blocksOtherRecognizers = true
         listen.delegate = self
         listen.startListening()
-        
-        self.window!.orderOut(self)
     }
     
-    func speechRecognizer(sender: NSSpeechRecognizer!, didRecognizeCommand command: AnyObject!) {
-        print("\(command as String) is talking to you \n")
-    }
+//    func speechRecognizer(sender: NSSpeechRecognizer!, didRecognizeCommand command: AnyObject!) {
+//        print("\(command as String) is talking to you \n")
+//        statusBarItem.title = "Listen"
+//    }
     
     @IBAction func buttonPressed(sender: NSButton) {
-        buttonPresses+=1
-        theLabel.stringValue = "Enter the closest English pronounciation of your name"
+        //buttonPresses+=1
+        //theLabel.stringValue = "Enter the closest English pronounciation of your name"
         //menuItem.title = "Clicked \(buttonPresses)"
-        listen.stopListening()
-        statusBarItem.title = "Listen"
+        //listen.stopListening()
+        name = nameText.stringValue
+//        statusBarItem.title = "Listen"
+        self.window!.orderOut(self)
+        let read : String? = File.read("/path/to/file.txt")
+        
+        //println(read)
+        
+        let write : Bool = File.write("/path/to/file2.txt", content: "String to write")
+        
+        //println(write)
+        
+        
+        
     }
     
     func setWindowVisible(sender: AnyObject){
         self.window!.orderFront(self)
+    }
+}
+class File {
+    
+    class func exists (path: String) -> Bool {
+        return NSFileManager().fileExistsAtPath(path)
+    }
+    
+    class func read (path: String, encoding: NSStringEncoding = NSUTF8StringEncoding) -> String? {
+        if File.exists(path) {
+            return String.stringWithContentsOfFile(path, encoding: encoding, error: nil)!
+        }
+        
+        return nil
+    }
+    
+    class func write (path: String, content: String, encoding: NSStringEncoding = NSUTF8StringEncoding) -> Bool {
+        return content.writeToFile(path, atomically: true, encoding: encoding, error: nil)
     }
 }
