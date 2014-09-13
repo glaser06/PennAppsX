@@ -10,7 +10,6 @@ import subprocess
 import time
 
 FORMAT = pyaudio.paInt16 
-SHORT_NORMALIZE = (1.0/32768.0)
 CHANNELS = 2
 RATE = 44100  
 INPUT_BLOCK_TIME = 0.05
@@ -94,13 +93,6 @@ class SoundMonitor(object):
                 #print( "(%d) XRUN: %s"%(self.errorcount,e) )
             return
         
-        self.rms_blocks += block
-        if len(self.rms_blocks) > INPUT_FRAMES_PER_BLOCK*self.RMS_SAMPLE_RATE*4:
-            self.rms_blocks = self.rms_blocks[INPUT_FRAMES_PER_BLOCK*4:]
-        else:
-            print "gathering ambient noise data..."
-        self.amp_threshold = get_rms(self.rms_blocks)
-
         amplitude = get_rms( block )
         if amplitude > self.amp_threshold + self.AMP_FUZZ_FACTOR:
             print( '#'*int(self.amp_threshold/100),'@'*((amplitude-self.amp_threshold)/100), self.amp_threshold, 'Talking!', amplitude)
@@ -109,11 +101,18 @@ class SoundMonitor(object):
             self.reset = True
             self.fuzz_time = time.time()+TIME_FUZZ_FACTOR
         elif self.fuzz_time - time.time() > 0:
-            pass
+            return
         elif self.reset:
             set_volume(self.normal_volume)
             self.reset = False
         else:
+            self.rms_blocks += block
+            if len(self.rms_blocks) > INPUT_FRAMES_PER_BLOCK*self.RMS_SAMPLE_RATE*4:
+                self.rms_blocks = self.rms_blocks[INPUT_FRAMES_PER_BLOCK*4:]
+            else:
+                print "gathering ambient noise data..."
+            self.amp_threshold = get_rms(self.rms_blocks)
+
             print( '#'*int(self.amp_threshold/100),'@'*((amplitude-self.amp_threshold)/100), self.amp_threshold, amplitude )
             self.normal_volume = get_volume()
 
