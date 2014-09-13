@@ -78,33 +78,15 @@ class Recognizer(AudioSource):
         cmd = subprocess.Popen("\"%s\" --stdout --totally-silent --best -" % flacConverter, stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
         flacData, stderr = cmd.communicate(wav_data)
         return flacData
-
-    def record(self, source, duration = None):
-        assert isinstance(source, AudioSource) and source.stream
-
-        frames = io.BytesIO()
-        seconds_per_buffer = (source.CHUNK + 0.0) / source.RATE
-        elapsed_time = 0
-        while True:
-            elapsed_time += seconds_per_buffer
-            if duration and elapsed_time > duration: break
-
-            buffer = source.stream.read(source.CHUNK)
-            if len(buffer) == 0: break
-            frames.write(buffer)
-
-        frameData = frames.getvalue()
-        frames.close()
-        return AudioData(source.RATE, self.samp2flac(source, frameData))
         
     def listen(self, source, timeout = None):
         assert isinstance(source, AudioSource) and source.stream
 
         frames = collections.deque()
         assert self.pause_threshold >= self.quiet_duration >= 0
-        seconds_per_buffer = (source.CHUNK + 0.0) / source.RATE
-        pause_buffer_count = int(math.ceil(self.pause_threshold / seconds_per_buffer)) # number of buffers of quiet audio before the phrase is complete
-        quiet_buffer_count = int(math.ceil(self.quiet_duration / seconds_per_buffer)) # maximum number of buffers of quiet audio to retain before and after
+        seconds_per_buffer = (source.CHUNK) / source.RATE
+        pause_buffer_count = int(math.ceil(self.pause_threshold / seconds_per_buffer))
+        quiet_buffer_count = int(math.ceil(self.quiet_duration / seconds_per_buffer))
         elapsed_time = 0
 
         while True:
@@ -160,13 +142,13 @@ class Recognizer(AudioSource):
                 actual_result = result[0]
 
         if "alternative" not in actual_result:
-            raise LookupError("Speech is unintelligible")
+            raise LookupError("Speech is nonsense")
 
         if not show_all:
             for prediction in actual_result["alternative"]:
                 if "confidence" in prediction:
                     return prediction["transcript"]
-            raise LookupError("Speech is useless")
+            raise LookupError("Speech is nonsense")
 
         spoken_text = []
 
