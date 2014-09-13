@@ -38,6 +38,8 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSSpeechRecognizerDelegate {
         menuItem.keyEquivalent = ""
         menu.addItem(menuItem)
         
+        setWindowVisible(self)
+        
         
     }
     
