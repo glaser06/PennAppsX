@@ -16,19 +16,18 @@ def checkName(audio, lock, v):
     try:
         list = r.recognize(audio, True)
         for prediction in list:
-            #print(prediction["text"])
             if(match.checkArray(prediction["text"], config.name, 0.5)):
-                #global annoyanceCounter
                 with lock:
-                    v = v + 1
-                if(v == 1):
+                    v.value += 1
+                if(v.value == 1):
                     rumps.notification("Pay attention!", "Someone said your name!", "Dumbass!")
-                elif(v == 2):
+                elif(v.value == 2):
                     message = client.messages.create(body="Pay some fucking attention to the people around you!",
                     to="+18583822455",
                     from_="+17606704339")
-                elif(annoyanceCounter == 3):
+                elif(v.value == 3):
                     os.system("osascript -e 'set Volume 0'")
+                break
             print(prediction["text"])
     except LookupError:
         print("Nothing said!")
@@ -41,7 +40,9 @@ class MusicNotifApp(rumps.App):
         lock = Lock()
         while True:
             with m as source:
-                audio = r.listen(source)
+                print("A0")
+                audio = r.record(source)
+                print("Audio")
             t = Thread(target = checkName, args=(audio, lock, v))
             t.setDaemon(True)
             t.start()

@@ -78,7 +78,25 @@ class Recognizer(AudioSource):
         cmd = subprocess.Popen("\"%s\" --stdout --totally-silent --best -" % flacConverter, stdin=subprocess.PIPE, stdout=subprocess.PIPE, shell=True)
         flacData, stderr = cmd.communicate(wav_data)
         return flacData
-        
+
+    def record(self, source, duration = 2):
+        assert isinstance(source, AudioSource) and source.stream
+
+        frames = io.BytesIO()
+        seconds_per_buffer = (source.CHUNK + 0.0) / source.RATE
+        elapsed_time = 0
+        while True:
+            elapsed_time += seconds_per_buffer
+            if duration and elapsed_time > duration: break
+
+            buffer = source.stream.read(source.CHUNK)
+            if len(buffer) == 0: break
+            frames.write(buffer)
+
+        frameData = frames.getvalue()
+        frames.close()
+        return AudioData(source.RATE, self.samp2flac(source, frameData))
+
     def listen(self, source, timeout = None):
         assert isinstance(source, AudioSource) and source.stream
 
@@ -91,8 +109,6 @@ class Recognizer(AudioSource):
 
         while True:
             elapsed_time += seconds_per_buffer
-            if elapsed_time > 2:
-                break
             if timeout and elapsed_time > timeout: 
                 raise TimeoutError("listening timed out")
 
