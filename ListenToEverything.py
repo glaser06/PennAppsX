@@ -8,10 +8,6 @@ import struct
 import sys
 import subprocess
 import time
-from multiprocessing import Process
-
-import numpy as np
-import pylab as pl
 
 FORMAT = pyaudio.paInt16 
 SHORT_NORMALIZE = (1.0/32768.0)
