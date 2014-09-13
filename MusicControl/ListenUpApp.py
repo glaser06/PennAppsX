@@ -9,6 +9,7 @@ class ListenUpApp(rumps.App):
         super(ListenUpApp, self).__init__("ListenUP!")
         self.menu = ["Alert on Name", "Duck Audio on Speaking", "Configure Name", "Configure Audio Ducking"]
         self.sm = ListenToEverything.SoundMonitor(100, 1500)
+        self.icon = 'icon.png'
 
     @rumps.clicked("Alert on Name")
     def alert_on_name(self, sender):
