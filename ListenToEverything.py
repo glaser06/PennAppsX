@@ -16,14 +16,17 @@ RATE = 44100
 INPUT_BLOCK_TIME = 0.05
 INPUT_FRAMES_PER_BLOCK = int(RATE*INPUT_BLOCK_TIME)
 TIME_FUZZ_FACTOR = 1.5
-RMS_SAMPLE_RATE = 100 # in blocks
-AMP_FUZZ_FACTOR = 600
+#RMS_SAMPLE_RATE = 100 # in blocks
+#AMP_FUZZ_FACTOR = 600
 
 def print_usage():
     print "usage %s <rms_sample_rate> <amp_fuzz_factor>" % sys.argv[0]
-    print "    Where rms_sample_rate is the number of blocks to look at to determine ambient noise level"
-    print "    and   amp_fuzz_factor is the noise level over ambient to drop system volume at"
-    print "    Units are fucked up. 100 and 100 respectively are good starting points"
+    print "    Where rms_sample_rate is the number of blocks to look at to determine"
+    print "      ambient noise level"
+    print "    and amp_fuzz_factor is the noise level over ambient to drop system"
+    print "      volume at"
+    print "    Units are fucked up. 100 and 100 respectively are good starting points;"
+    print "      in general higher values are better for noisier rooms."
 
 def set_volume(volume):
     subprocess.call(['osascript', '-e', 'set volume output volume '+str(volume)])
@@ -43,8 +46,8 @@ class SoundMonitor(object):
         self.errorcount = 0
         self.fuzz_time = 0
         self.rms_blocks = ""
-        RMS_SAMPLE_RATE = sys.argv[1]            
-        AMP_FUZZ_FACTOR = sys.argv[2]
+        self.RMS_SAMPLE_RATE = int(sys.argv[1])           
+        self.AMP_FUZZ_FACTOR = int(sys.argv[2])
 
         self.pa = pyaudio.PyAudio()
         self.stream = self.open_mic_stream()
@@ -91,13 +94,16 @@ class SoundMonitor(object):
             return
         
         self.rms_blocks += block
-        if len(self.rms_blocks) > INPUT_FRAMES_PER_BLOCK*RMS_SAMPLE_RATE*4:
+        if len(self.rms_blocks) > INPUT_FRAMES_PER_BLOCK*self.RMS_SAMPLE_RATE*4:
             self.rms_blocks = self.rms_blocks[INPUT_FRAMES_PER_BLOCK*4:]
-        self.amp_threshold = get_rms(self.rms_blocks) + AMP_FUZZ_FACTOR
+        else:
+            print "gathering ambient noise data..."
+        self.amp_threshold = get_rms(self.rms_blocks)
 
         amplitude = get_rms( block )
-        if amplitude > self.amp_threshold:
-            print('#'*int(amplitude/100), amplitude, 'Talking!' )
+        if amplitude > self.amp_threshold + self.AMP_FUZZ_FACTOR:
+            print( '#'*int(self.amp_threshold/100),'@'*((amplitude-self.amp_threshold)/100), self.amp_threshold, 'Talking!', amplitude)
+            #print('#'*int(amplitude/100), amplitude, 'Talking!' )
             set_volume(self.normal_volume/4)
             self.reset = True
             self.fuzz_time = time.time()+TIME_FUZZ_FACTOR
@@ -107,7 +113,7 @@ class SoundMonitor(object):
             set_volume(self.normal_volume)
             self.reset = False
         else:
-            print( '#'*int(self.amp_threshold/100), self.amp_threshold )
+            print( '#'*int(self.amp_threshold/100),'@'*((amplitude-self.amp_threshold)/100), self.amp_threshold, amplitude )
             self.normal_volume = get_volume()
 
 if __name__ == "__main__":
