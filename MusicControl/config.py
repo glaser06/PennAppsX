@@ -6,8 +6,6 @@ import subprocess
 from threading import Thread
 from multiprocessing import Process, Value, Lock
 
-name = "Yousuf Sunny Kumail Gerry"
-
 def genNames():
     global name
     r = g.Recognizer()
@@ -19,3 +17,8 @@ def genNames():
     for prediction in list:
         strng = strng + " " + prediction["text"]
     return strng
+    
+if __name__ == "__main__":
+    f = open('.name', 'w')
+    names = genNames()
+    f.write(names)
