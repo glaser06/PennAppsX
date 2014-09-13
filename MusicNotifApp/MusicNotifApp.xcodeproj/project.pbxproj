@@ -7,44 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6DD5250019C3F71800807625 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD524FF19C3F71800807625 /* main.swift */; };
-		6DD5250219C3F71800807625 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD5250119C3F71800807625 /* AppDelegate.swift */; };
-		6DD5250419C3F71800807625 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6DD5250319C3F71800807625 /* Images.xcassets */; };
-		6DD5250719C3F71800807625 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DD5250519C3F71800807625 /* MainMenu.xib */; };
-		6DD5251319C3F71800807625 /* MusicNotifAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD5251219C3F71800807625 /* MusicNotifAppTests.swift */; };
+		6D68B12119C496A800A245E3 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D68B12019C496A800A245E3 /* main.swift */; };
+		6D68B12319C496A800A245E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D68B12219C496A800A245E3 /* AppDelegate.swift */; };
+		6D68B12519C496A800A245E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D68B12419C496A800A245E3 /* Images.xcassets */; };
+		6D68B12819C496A800A245E3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D68B12619C496A800A245E3 /* MainMenu.xib */; };
+		6D68B13419C496A800A245E3 /* MusicNotifAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D68B13319C496A800A245E3 /* MusicNotifAppTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6DD5250D19C3F71800807625 /* PBXContainerItemProxy */ = {
+		6D68B12E19C496A800A245E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 6DD524F219C3F71800807625 /* Project object */;
+			containerPortal = 6D68B11319C496A800A245E3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 6DD524F919C3F71800807625;
+			remoteGlobalIDString = 6D68B11A19C496A800A245E3;
 			remoteInfo = MusicNotifApp;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6DD524FA19C3F71800807625 /* MusicNotifApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNotifApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DD524FE19C3F71800807625 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DD524FF19C3F71800807625 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		6DD5250119C3F71800807625 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6DD5250319C3F71800807625 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6DD5250619C3F71800807625 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		6DD5250C19C3F71800807625 /* MusicNotifAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicNotifAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6DD5251119C3F71800807625 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DD5251219C3F71800807625 /* MusicNotifAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicNotifAppTests.swift; sourceTree = "<group>"; };
+		6D68B11B19C496A800A245E3 /* MusicNotifApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicNotifApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D68B11F19C496A800A245E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D68B12019C496A800A245E3 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		6D68B12219C496A800A245E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6D68B12419C496A800A245E3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6D68B12719C496A800A245E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		6D68B12D19C496A800A245E3 /* MusicNotifAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MusicNotifAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D68B13219C496A800A245E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D68B13319C496A800A245E3 /* MusicNotifAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicNotifAppTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6DD524F719C3F71800807625 /* Frameworks */ = {
+		6D68B11819C496A800A245E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DD5250919C3F71800807625 /* Frameworks */ = {
+		6D68B12A19C496A800A245E3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -54,57 +54,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6DD524F119C3F71800807625 = {
+		6D68B11219C496A800A245E3 = {
 			isa = PBXGroup;
 			children = (
-				6DD524FC19C3F71800807625 /* MusicNotifApp */,
-				6DD5250F19C3F71800807625 /* MusicNotifAppTests */,
-				6DD524FB19C3F71800807625 /* Products */,
+				6D68B11D19C496A800A245E3 /* MusicNotifApp */,
+				6D68B13019C496A800A245E3 /* MusicNotifAppTests */,
+				6D68B11C19C496A800A245E3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6DD524FB19C3F71800807625 /* Products */ = {
+		6D68B11C19C496A800A245E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6DD524FA19C3F71800807625 /* MusicNotifApp.app */,
-				6DD5250C19C3F71800807625 /* MusicNotifAppTests.xctest */,
+				6D68B11B19C496A800A245E3 /* MusicNotifApp.app */,
+				6D68B12D19C496A800A245E3 /* MusicNotifAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6DD524FC19C3F71800807625 /* MusicNotifApp */ = {
+		6D68B11D19C496A800A245E3 /* MusicNotifApp */ = {
 			isa = PBXGroup;
 			children = (
-				6DD5250119C3F71800807625 /* AppDelegate.swift */,
-				6DD5250319C3F71800807625 /* Images.xcassets */,
-				6DD5250519C3F71800807625 /* MainMenu.xib */,
-				6DD524FD19C3F71800807625 /* Supporting Files */,
+				6D68B12219C496A800A245E3 /* AppDelegate.swift */,
+				6D68B12419C496A800A245E3 /* Images.xcassets */,
+				6D68B12619C496A800A245E3 /* MainMenu.xib */,
+				6D68B11E19C496A800A245E3 /* Supporting Files */,
 			);
 			path = MusicNotifApp;
 			sourceTree = "<group>";
 		};
-		6DD524FD19C3F71800807625 /* Supporting Files */ = {
+		6D68B11E19C496A800A245E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6DD524FE19C3F71800807625 /* Info.plist */,
-				6DD524FF19C3F71800807625 /* main.swift */,
+				6D68B11F19C496A800A245E3 /* Info.plist */,
+				6D68B12019C496A800A245E3 /* main.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6DD5250F19C3F71800807625 /* MusicNotifAppTests */ = {
+		6D68B13019C496A800A245E3 /* MusicNotifAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				6DD5251219C3F71800807625 /* MusicNotifAppTests.swift */,
-				6DD5251019C3F71800807625 /* Supporting Files */,
+				6D68B13319C496A800A245E3 /* MusicNotifAppTests.swift */,
+				6D68B13119C496A800A245E3 /* Supporting Files */,
 			);
 			path = MusicNotifAppTests;
 			sourceTree = "<group>";
 		};
-		6DD5251019C3F71800807625 /* Supporting Files */ = {
+		6D68B13119C496A800A245E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6DD5251119C3F71800807625 /* Info.plist */,
+				6D68B13219C496A800A245E3 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -112,13 +112,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6DD524F919C3F71800807625 /* MusicNotifApp */ = {
+		6D68B11A19C496A800A245E3 /* MusicNotifApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6DD5251619C3F71800807625 /* Build configuration list for PBXNativeTarget "MusicNotifApp" */;
+			buildConfigurationList = 6D68B13719C496A800A245E3 /* Build configuration list for PBXNativeTarget "MusicNotifApp" */;
 			buildPhases = (
-				6DD524F619C3F71800807625 /* Sources */,
-				6DD524F719C3F71800807625 /* Frameworks */,
-				6DD524F819C3F71800807625 /* Resources */,
+				6D68B11719C496A800A245E3 /* Sources */,
+				6D68B11819C496A800A245E3 /* Frameworks */,
+				6D68B11919C496A800A245E3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -126,46 +126,46 @@
 			);
 			name = MusicNotifApp;
 			productName = MusicNotifApp;
-			productReference = 6DD524FA19C3F71800807625 /* MusicNotifApp.app */;
+			productReference = 6D68B11B19C496A800A245E3 /* MusicNotifApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6DD5250B19C3F71800807625 /* MusicNotifAppTests */ = {
+		6D68B12C19C496A800A245E3 /* MusicNotifAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6DD5251919C3F71800807625 /* Build configuration list for PBXNativeTarget "MusicNotifAppTests" */;
+			buildConfigurationList = 6D68B13A19C496A800A245E3 /* Build configuration list for PBXNativeTarget "MusicNotifAppTests" */;
 			buildPhases = (
-				6DD5250819C3F71800807625 /* Sources */,
-				6DD5250919C3F71800807625 /* Frameworks */,
-				6DD5250A19C3F71800807625 /* Resources */,
+				6D68B12919C496A800A245E3 /* Sources */,
+				6D68B12A19C496A800A245E3 /* Frameworks */,
+				6D68B12B19C496A800A245E3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6DD5250E19C3F71800807625 /* PBXTargetDependency */,
+				6D68B12F19C496A800A245E3 /* PBXTargetDependency */,
 			);
 			name = MusicNotifAppTests;
 			productName = MusicNotifAppTests;
-			productReference = 6DD5250C19C3F71800807625 /* MusicNotifAppTests.xctest */;
+			productReference = 6D68B12D19C496A800A245E3 /* MusicNotifAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6DD524F219C3F71800807625 /* Project object */ = {
+		6D68B11319C496A800A245E3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Zaizen Kaegyoshi";
 				TargetAttributes = {
-					6DD524F919C3F71800807625 = {
+					6D68B11A19C496A800A245E3 = {
 						CreatedOnToolsVersion = 6.0;
 					};
-					6DD5250B19C3F71800807625 = {
+					6D68B12C19C496A800A245E3 = {
 						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 6DD524F919C3F71800807625;
+						TestTargetID = 6D68B11A19C496A800A245E3;
 					};
 				};
 			};
-			buildConfigurationList = 6DD524F519C3F71800807625 /* Build configuration list for PBXProject "MusicNotifApp" */;
+			buildConfigurationList = 6D68B11619C496A800A245E3 /* Build configuration list for PBXProject "MusicNotifApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -173,28 +173,28 @@
 				en,
 				Base,
 			);
-			mainGroup = 6DD524F119C3F71800807625;
-			productRefGroup = 6DD524FB19C3F71800807625 /* Products */;
+			mainGroup = 6D68B11219C496A800A245E3;
+			productRefGroup = 6D68B11C19C496A800A245E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6DD524F919C3F71800807625 /* MusicNotifApp */,
-				6DD5250B19C3F71800807625 /* MusicNotifAppTests */,
+				6D68B11A19C496A800A245E3 /* MusicNotifApp */,
+				6D68B12C19C496A800A245E3 /* MusicNotifAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6DD524F819C3F71800807625 /* Resources */ = {
+		6D68B11919C496A800A245E3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DD5250419C3F71800807625 /* Images.xcassets in Resources */,
-				6DD5250719C3F71800807625 /* MainMenu.xib in Resources */,
+				6D68B12519C496A800A245E3 /* Images.xcassets in Resources */,
+				6D68B12819C496A800A245E3 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DD5250A19C3F71800807625 /* Resources */ = {
+		6D68B12B19C496A800A245E3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -204,38 +204,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6DD524F619C3F71800807625 /* Sources */ = {
+		6D68B11719C496A800A245E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DD5250219C3F71800807625 /* AppDelegate.swift in Sources */,
-				6DD5250019C3F71800807625 /* main.swift in Sources */,
+				6D68B12319C496A800A245E3 /* AppDelegate.swift in Sources */,
+				6D68B12119C496A800A245E3 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6DD5250819C3F71800807625 /* Sources */ = {
+		6D68B12919C496A800A245E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DD5251319C3F71800807625 /* MusicNotifAppTests.swift in Sources */,
+				6D68B13419C496A800A245E3 /* MusicNotifAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6DD5250E19C3F71800807625 /* PBXTargetDependency */ = {
+		6D68B12F19C496A800A245E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6DD524F919C3F71800807625 /* MusicNotifApp */;
-			targetProxy = 6DD5250D19C3F71800807625 /* PBXContainerItemProxy */;
+			target = 6D68B11A19C496A800A245E3 /* MusicNotifApp */;
+			targetProxy = 6D68B12E19C496A800A245E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6DD5250519C3F71800807625 /* MainMenu.xib */ = {
+		6D68B12619C496A800A245E3 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6DD5250619C3F71800807625 /* Base */,
+				6D68B12719C496A800A245E3 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6DD5251419C3F71800807625 /* Debug */ = {
+		6D68B13519C496A800A245E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -277,7 +277,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -285,7 +285,7 @@
 			};
 			name = Debug;
 		};
-		6DD5251519C3F71800807625 /* Release */ = {
+		6D68B13619C496A800A245E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -314,37 +314,35 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		6DD5251719C3F71800807625 /* Debug */ = {
+		6D68B13819C496A800A245E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MusicNotifApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		6DD5251819C3F71800807625 /* Release */ = {
+		6D68B13919C496A800A245E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MusicNotifApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		6DD5251A19C3F71800807625 /* Debug */ = {
+		6D68B13B19C496A800A245E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -364,7 +362,7 @@
 			};
 			name = Debug;
 		};
-		6DD5251B19C3F71800807625 /* Release */ = {
+		6D68B13C19C496A800A245E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -383,34 +381,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6DD524F519C3F71800807625 /* Build configuration list for PBXProject "MusicNotifApp" */ = {
+		6D68B11619C496A800A245E3 /* Build configuration list for PBXProject "MusicNotifApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6DD5251419C3F71800807625 /* Debug */,
-				6DD5251519C3F71800807625 /* Release */,
+				6D68B13519C496A800A245E3 /* Debug */,
+				6D68B13619C496A800A245E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6DD5251619C3F71800807625 /* Build configuration list for PBXNativeTarget "MusicNotifApp" */ = {
+		6D68B13719C496A800A245E3 /* Build configuration list for PBXNativeTarget "MusicNotifApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6DD5251719C3F71800807625 /* Debug */,
-				6DD5251819C3F71800807625 /* Release */,
+				6D68B13819C496A800A245E3 /* Debug */,
+				6D68B13919C496A800A245E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		6DD5251919C3F71800807625 /* Build configuration list for PBXNativeTarget "MusicNotifAppTests" */ = {
+		6D68B13A19C496A800A245E3 /* Build configuration list for PBXNativeTarget "MusicNotifAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6DD5251A19C3F71800807625 /* Debug */,
-				6DD5251B19C3F71800807625 /* Release */,
+				6D68B13B19C496A800A245E3 /* Debug */,
+				6D68B13C19C496A800A245E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6DD524F219C3F71800807625 /* Project object */;
+	rootObject = 6D68B11319C496A800A245E3 /* Project object */;
 }
