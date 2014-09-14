@@ -30,16 +30,16 @@ def get_volume():
     ovol = int(subprocess.check_output(['osascript', '-e', 'set ovol to output volume of (get volume settings)']))
     return ovol
 
-def checkName(audio, lock, v, name):
+def checkName(audio, lock, v, names):
     #print("Called checkName")
     try:
         list = r.recognize(audio, True)
         for prediction in list:
-            if(match.checkArray(prediction["text"], name, 0.3)):
+            if(match.checkArray(prediction["text"], names, 0.3)):
                 with lock:
                     v.value += 1
                 if(v.value >= 1):
-                    rumps.notification("Pay attention!", "Someone said your name!", "Dumbass!")
+                    rumps.notification("Pay attention!", "Someone said your name!", "")
                 #if(v.value >= 2):
                 #   message = client.messages.create(body="Pay some fucking attention to the people around you!", to="+18583822455", from_="+17606704339")
                 if(v.value >= 1):
@@ -50,7 +50,7 @@ def checkName(audio, lock, v, name):
         print("")
         #print("Nothing said!")
 
-def run(name):
+def run(names):
     global isrunning
     isrunning = True
     v = Value('i', 0)
@@ -58,7 +58,7 @@ def run(name):
     while isrunning:
         with m as source:
             audio = r.record(source)
-        t = Thread(target = checkName, args=(audio, lock, v, name))
+        t = Thread(target = checkName, args=(audio, lock, v, names))
         t.setDaemon(True)
         t.start()
 

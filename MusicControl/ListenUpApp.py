@@ -18,9 +18,9 @@ class ListenUpApp(rumps.App):
         sender.state = not sender.state
         if (sender.state):
             f = open('.name')
-            name = f.read().split(',')[0]
+            names = f.read()[:]
             f.close()
-            t = threading.Thread(target=MusicNotifApp.run, args=(name,))
+            t = threading.Thread(target=MusicNotifApp.run, args=(names,))
             t.start()
         else:
             MusicNotifApp.kill()
@@ -39,11 +39,11 @@ class ListenUpApp(rumps.App):
     def configure_name(self, _):
         config.run()
         f = open('.name', 'r+')
-        name = f.read().split(',')[0]
-        rumps.alert("Your name has been set to "+name)
-        window = rumps.Window(title="if that's incorrect, correct it here", default_text=name, dimensions=(100, 20))
+        names = f.read()
+        rumps.alert("We think your name is one of "+names)
+        window = rumps.Window(title="if that's incorrect, correct it here", default_text=names.split(',')[0], dimensions=(100, 20))
         name = window.run().text
-        f.write(name)
+        f.write(","+name)
         f.close()
 
     @rumps.clicked("Configure Audio Ducking")

@@ -11,8 +11,6 @@ import time
 import logging
 from logging import debug
 
-#logging.basicConfig(level=logging.DEBUG)
-
 FORMAT = pyaudio.paInt16 
 CHANNELS = 2
 RATE = 44100  
