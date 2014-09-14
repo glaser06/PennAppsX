@@ -38,13 +38,22 @@ class ListenUpApp(rumps.App):
     @rumps.clicked("Configure Name")
     def configure_name(self, _):
         config.run()
+        f = open('.name', 'r+')
+        name = f.read().split(',')[0]
+        rumps.alert("Your name has been set to "+name)
+        window = rumps.Window(title="if that's incorrect, correct it here", default_text=name, dimensions=(100, 20))
+        name = window.run().text
+        f.write(name)
+        f.close()
 
     @rumps.clicked("Configure Audio Ducking")
     def configure_ducking(self, _):
-        window = rumps.Window(title='configure ambient noise sample rate', dimensions=(100,20))
-        self.sm.set_rms_sample_rate(int(window.run().text))
-        window = rumps.Window(title='configure amplitude threshold', dimensions=(100,20))
-        self.sm.set_amp_fuzz_factor(int(window.run().text))
+        window = rumps.Window(title='configure ambient noise sample rate', default_text=str(self.rms_sample_rate), dimensions=(100,20))
+        self.rms_sample_rate = int(window.run().text)
+        self.sm.set_rms_sample_rate(self.rms_sample_rate)
+        window = rumps.Window(title='configure amplitude threshold', default_text=str(self.amp_fuzz_factor), dimensions=(100,20))
+        self.amp_fuzz_factor = int(window.run().text)
+        self.sm.set_amp_fuzz_factor(self.amp_fuzz_factor)
 
 if __name__ == "__main__":
     ListenUpApp().run()

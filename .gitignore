@@ -1,3 +1,4 @@
 *.pyc
+MusicControl/.name
 MusicControl/build/*
 MusicControl/dist/*
