@@ -8,6 +8,10 @@ import struct
 import sys
 import subprocess
 import time
+import logging
+from logging import debug
+
+#logging.basicConfig(level=logging.DEBUG)
 
 FORMAT = pyaudio.paInt16 
 CHANNELS = 2
@@ -60,16 +64,16 @@ class SoundMonitor(object):
         device_index = None            
         for i in range( self.pa.get_device_count() ):     
             devinfo = self.pa.get_device_info_by_index(i)   
-            print( "Device %d: %s"%(i,devinfo["name"]) )
+            debug( "Device %d: %s"%(i,devinfo["name"]) )
 
             for keyword in ["mic","input"]:
                 if keyword in devinfo["name"].lower():
-                    print( "Found an input: device %d - %s"%(i,devinfo["name"]) )
+                    debug( "Found an input: device %d - %s"%(i,devinfo["name"]) )
                     device_index = i
                     return device_index
 
         if device_index == None:
-            print( "No preferred input found; using default input device." )
+            debug( "No preferred input found; using default input device." )
 
         return device_index
 
@@ -91,13 +95,13 @@ class SoundMonitor(object):
             # dammit.
             if e[1] == pyaudio.paInputOverflowed:
                 self.errorcount += 1
-                #print( "(%d) XRUN: %s"%(self.errorcount,e) )
+                #debug( "(%d) XRUN: %s"%(self.errorcount,e) )
             return
         
         amplitude = get_rms( block )
         if amplitude > self.amp_threshold + self.AMP_FUZZ_FACTOR:
-            print( '#'*int(self.amp_threshold/100),'@'*((amplitude-self.amp_threshold)/100), self.amp_threshold, 'Talking!', amplitude)
-            #print('#'*int(amplitude/100), amplitude, 'Talking!' )
+            debug("%s %s %s %s %s", '#'*int(self.amp_threshold/100),'@'*((amplitude-self.amp_threshold)/100), self.amp_threshold, 'Talking!', amplitude)
+            #debug('#'*int(amplitude/100), amplitude, 'Talking!' )
             set_volume(self.normal_volume/4)
             self.reset = True
             self.fuzz_time = time.time()+TIME_FUZZ_FACTOR
@@ -111,12 +115,18 @@ class SoundMonitor(object):
             if len(self.rms_blocks) > INPUT_FRAMES_PER_BLOCK*self.RMS_SAMPLE_RATE*4:
                 self.rms_blocks = self.rms_blocks[INPUT_FRAMES_PER_BLOCK*4:]
             else:
-                print "gathering ambient noise data..."
+                debug( "gathering ambient noise data...")
             self.amp_threshold = get_rms(self.rms_blocks)
 
-            print( '#'*int(self.amp_threshold/100),'@'*((amplitude-self.amp_threshold)/100), self.amp_threshold, amplitude )
+            debug("%s %s %s %s", '#'*int(self.amp_threshold/100),'@'*((amplitude-self.amp_threshold)/100), self.amp_threshold, amplitude )
             self.normal_volume = get_volume()
     
+    def set_rms_sample_rate(self, rms_sample_rate):
+        self.RMS_SAMPLE_RATE = rms_sample_rate
+
+    def set_amp_fuzz_factor(self, amp_fuzz_factor):
+        self.AMP_FUZZ_FACTOR = amp_fuzz_factor
+
     def loop(self):
         self.stream = self.open_mic_stream()
         self.running = True

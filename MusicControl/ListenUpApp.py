@@ -8,7 +8,9 @@ class ListenUpApp(rumps.App):
     def __init__(self):
         super(ListenUpApp, self).__init__("ListenUP!")
         self.menu = ["Alert on Name", "Duck Audio on Speaking", "Configure Name", "Configure Audio Ducking"]
-        self.sm = ListenToEverything.SoundMonitor(100, 1500)
+        self.rms_sample_rate = 100
+        self.amp_fuzz_factor = 1500
+        self.sm = ListenToEverything.SoundMonitor(self.rms_sample_rate, self.amp_fuzz_factor)
         self.icon = 'icon.png'
 
     @rumps.clicked("Alert on Name")
@@ -39,7 +41,10 @@ class ListenUpApp(rumps.App):
 
     @rumps.clicked("Configure Audio Ducking")
     def configure_ducking(self, _):
-        pass
+        window = rumps.Window(title='configure ambient noise sample rate', dimensions=(100,20))
+        self.sm.set_rms_sample_rate(int(window.run().text))
+        window = rumps.Window(title='configure amplitude threshold', dimensions=(100,20))
+        self.sm.set_amp_fuzz_factor(int(window.run().text))
 
 if __name__ == "__main__":
     ListenUpApp().run()
