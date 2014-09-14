@@ -25,6 +25,8 @@ def sM0(s1, s2):
 
 
 def sM1(s1, s2):
+    if(s2 == ""):
+        return (s1 == s2) + 0
     s1 = s1.lower()
     s2 = s2.lower()
     c = 0
